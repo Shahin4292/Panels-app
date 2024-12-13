@@ -24,10 +24,24 @@ class _ExplorePageState extends State<ExplorePage> {
               background: PageView.builder(
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return CachedNetworkImage(
-                      imageUrl:
-                          'https://picsum.photos/500/500?random=slide_$index',
-                      fit: BoxFit.cover,
+                    return Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        CachedNetworkImage(
+                          imageUrl:
+                              'https://picsum.photos/500/500?random=slide_$index',
+                          fit: BoxFit.cover,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                stops: [0.01, 1],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter,
+                                colors: [Colors.black, Colors.transparent]),
+                          ),
+                        )
+                      ],
                     );
                   }),
             ),
