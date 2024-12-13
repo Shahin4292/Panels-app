@@ -42,7 +42,7 @@ class _MainPagesState extends State<MainPages> {
       ),
       bottomNavigationBar: AnimatedContainer(
         duration: Duration(milliseconds: 300),
-        height: _isVisible ? 100 : 0,
+        height: _isVisible ? 80 : 0,
         child: Wrap(
           children: [
             BottomNavigationBar(
@@ -50,6 +50,7 @@ class _MainPagesState extends State<MainPages> {
               fixedColor: Colors.black,
               unselectedItemColor: Colors.grey,
               iconSize: 32,
+              elevation: 0,
               currentIndex: _currentIndex,
               onTap: (index) {
                 setState(() {
