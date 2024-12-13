@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -16,7 +17,23 @@ class _ExplorePageState extends State<ExplorePage> {
     return Scaffold(
         body: NestedScrollView(
       headerSliverBuilder: (context, innerBoxIsScrolled) {
-        return [];
+        return [
+          SliverAppBar(
+            expandedHeight: 320,
+            flexibleSpace: FlexibleSpaceBar(
+              background: PageView.builder(
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return CachedNetworkImage(
+                      imageUrl:
+                          'https://picsum.photos/500/500?random=slide_$index',
+                      fit: BoxFit.cover,
+                    );
+                  }),
+            ),
+          ),
+          SliverAppBar(),
+        ];
       },
       body: MasonryGridView.count(
         crossAxisCount: 2,
@@ -26,7 +43,7 @@ class _ExplorePageState extends State<ExplorePage> {
         itemBuilder: (context, index) {
           return ImageTile(
             index: index,
-            imageSource: 'https://picsum.photos/500/500?random=$index',
+            imageSource: 'https://picsum.photos/500/500?random=img_$index',
             extent: (index % 2) == 0 ? 300 : 150,
           );
         },
