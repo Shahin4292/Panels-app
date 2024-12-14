@@ -61,7 +61,8 @@ class _ExplorePageState extends State<ExplorePage> {
                       child: Wrap(
                           alignment: WrapAlignment.center,
                           children: List.generate(5, (index) {
-                            return Container(
+                            return AnimatedContainer(
+                              duration: Duration(milliseconds: 300),
                               height: 12,
                               width: 12,
                               margin: EdgeInsets.symmetric(horizontal: 8),
@@ -76,7 +77,25 @@ class _ExplorePageState extends State<ExplorePage> {
               ),
             ),
           ),
-          SliverAppBar(),
+          MediaQuery.removePadding(
+            context: context,
+            removeTop: true,
+            child: SliverAppBar(
+              centerTitle: true,
+              floating: true,
+              snap: true,
+              title: TextButton.icon(
+                onPressed: () {},
+                label: Text('Search'),
+                icon: Icon(Icons.search),
+                style: ButtonStyle(
+                  foregroundColor: WidgetStatePropertyAll(Colors.black),
+                  iconSize: WidgetStatePropertyAll(24),
+                  textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 20)),
+                ),
+              ),
+            ),
+          ),
         ];
       },
       body: MasonryGridView.count(
