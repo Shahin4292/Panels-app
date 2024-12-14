@@ -46,7 +46,12 @@ class ImageTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      InkWell(child: Icon(Icons.favorite_outline))
+                      InkWell(
+                        child: Icon(
+                          Icons.favorite_outline,
+                          color: Colors.white,size: 20,
+                        ),
+                      ),
                     ],
                   )),
             ),
