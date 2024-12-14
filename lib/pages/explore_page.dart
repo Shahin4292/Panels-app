@@ -48,7 +48,7 @@ class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: _isVisible ? Colors.black : Colors.white,
         body: SafeArea(
           top: !_isVisible,
           child: NestedScrollView(
@@ -123,6 +123,9 @@ class _ExplorePageState extends State<ExplorePage> {
                     centerTitle: true,
                     floating: true,
                     snap: true,
+                    backgroundColor: _isVisible
+                        ? Colors.white
+                        : Colors.white.withOpacity(0.95),
                     shape: RoundedRectangleBorder(
                         borderRadius:
                             BorderRadius.vertical(top: Radius.circular(12))),
