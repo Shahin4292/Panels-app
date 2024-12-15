@@ -98,14 +98,29 @@ class ImageTile extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {}),
-                  Container(
-                    decoration: BoxDecoration(shape: BoxShape.circle),
-                    clipBehavior: Clip.antiAlias,
-                    child: CachedNetworkImage(
-                      imageUrl: 'https://picsum.photos/500/500',
-                      height: 50,
-                      width: 50,
-                    ),
+                  Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(shape: BoxShape.circle),
+                        clipBehavior: Clip.antiAlias,
+                        child: CachedNetworkImage(
+                          imageUrl: 'https://picsum.photos/500/500',
+                          height: 50,
+                          width: 50,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                border:
+                                    Border.all(color: Colors.white, width: 2),
+                                shape: BoxShape.circle),
+                            child: Icon(Icons.check)),
+                      )
+                    ],
                   ),
                 ],
               ));
