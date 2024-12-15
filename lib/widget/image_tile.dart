@@ -84,7 +84,20 @@ class ImageTile extends StatelessWidget {
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                     ),
-                  )
+                  ),
+                  MaterialButton(
+                      color: Colors.black,
+                      textColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Text(
+                        'Get Wallpaper',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      onPressed: () {}),
                 ],
               ));
         });
