@@ -78,6 +78,13 @@ class ImageTile extends StatelessWidget {
               child: Column(
                 children: [
                   CachedNetworkImage(imageUrl: imageSource),
+                  Text(
+                    'Image Title',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
                 ],
               ));
         });
