@@ -16,7 +16,7 @@ class ImageTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showImageDetails(context imageSource);
+        showImageDetails(context, imageSource);
       },
       child: Container(
           height: extent,
@@ -53,17 +53,16 @@ class ImageTile extends StatelessWidget {
                         InkWell(
                           child: Icon(
                             Icons.favorite_outline,
-                            color: Colors.white,size: 20,
+                            color: Colors.white,
+                            size: 20,
                           ),
                         ),
                       ],
                     )),
               ),
               Column(
-
-                children: [
-
-              ],)
+                children: [],
+              )
             ],
           )),
     );
@@ -71,13 +70,16 @@ class ImageTile extends StatelessWidget {
 
   void showImageDetails(BuildContext context, String imageSource) {
     showModalBottomSheet(
-      isScrollControlled: true,
+        isScrollControlled: true,
         context: context,
-        builder: (context){
-      return FractionallySizedBox(
-
-        heightFactor: 0.9,
-      );
-    });
+        builder: (context) {
+          return FractionallySizedBox(
+              heightFactor: 0.9,
+              child: Column(
+                children: [
+                  CachedNetworkImage(imageUrl: imageSource),
+                ],
+              ));
+        });
   }
 }
