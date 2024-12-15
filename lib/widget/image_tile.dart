@@ -98,6 +98,15 @@ class ImageTile extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {}),
+                  Container(
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    clipBehavior: Clip.antiAlias,
+                    child: CachedNetworkImage(
+                      imageUrl: 'https://picsum.photos/500/500',
+                      height: 50,
+                      width: 50,
+                    ),
+                  ),
                 ],
               ));
         });
