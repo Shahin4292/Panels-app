@@ -13,21 +13,71 @@ class CollectionTile extends StatelessWidget {
       height: extend,
       child: Stack(
         children: [
-          Positioned(
+          Positioned.fill(
+            left: 25,
+            right: 25,
             bottom: 0,
-            child: CachedNetworkImage(
-                imageUrl: 'https://picsum.photos/500/500?random=imag_1$index'),
+            child: Container(
+              decoration: BoxDecoration(
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.black87,
+                //     blurRadius: 6,
+                //     spreadRadius: -6,
+                //     offset: Offset(0, 10),
+                //   )
+                // ],
+                borderRadius: BorderRadius.circular(10),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: CachedNetworkImage(
+                  imageUrl: 'https://picsum.photos/500/500?random=imag_1$index',
+                  fit: BoxFit.cover),
+            ),
           ),
           Positioned(
+            left: 15,
+            right: 15,
             bottom: 15,
-            child: CachedNetworkImage(
-                imageUrl: 'https://picsum.photos/500/500?random=imag_2$index'),
+            child: Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black87,
+                    blurRadius: 6,
+                    spreadRadius: -6,
+                    offset: Offset(0, 10),
+                  )
+                ],
+                borderRadius: BorderRadius.circular(10),
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: CachedNetworkImage(
+                  imageUrl: 'https://picsum.photos/500/500?random=imag_2$index',
+                  fit: BoxFit.cover),
+            ),
           ),
-          Positioned(
-            bottom: 30,
-            child: CachedNetworkImage(
-                imageUrl: 'https://picsum.photos/500/500?random=imag_3$index'),
-          ),
+          Positioned.fill(
+              bottom: 30,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black87,
+                      blurRadius: 6,
+                      spreadRadius: -6,
+                      offset: Offset(0, 10),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: CachedNetworkImage(
+                  imageUrl: 'https://picsum.photos/500/500?random=imag_3$index',
+                  fit: BoxFit.cover,
+                ),
+              )),
+          Positioned(child: Icon(Icons.star))
         ],
       ),
     );
