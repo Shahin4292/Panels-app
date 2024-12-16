@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:pannels/widget/collection_tile.dart';
 import 'package:pannels/widget/image_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,13 +21,15 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _scrollController.addListener(() {
-      if (_scrollController.position.userScrollDirection == ScrollDirection.reverse) {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
         if (_isVisible) {
           _isVisible = false;
           widget.afterScrollResult(_isVisible);
         }
       }
-      if (_scrollController.position.userScrollDirection == ScrollDirection.forward) {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
         if (!_isVisible) {
           _isVisible = true;
           widget.afterScrollResult(_isVisible);
@@ -82,11 +85,13 @@ class _HomePageState extends State<HomePage> {
                 crossAxisSpacing: 10,
                 padding: EdgeInsets.all(10),
                 itemBuilder: (context, index) {
-                  return ImageTile(
-                    index: index,
-                    imageSource: 'https://picsum.photos/500/500?random=$index',
-                    extent: (index % 2) == 0 ? 300 : 150,
-                  );
+                  return (index % 2) == 0
+                      ? ImageTile(
+                          index: index,
+                          imageSource:
+                              'https://picsum.photos/500/500?random=$index',
+                          extent: 300)
+                      : CollectionTile(index: index, extend: 150);
                 },
               ),
               SizedBox(),
