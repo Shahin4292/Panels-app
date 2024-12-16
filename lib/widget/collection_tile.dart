@@ -77,7 +77,10 @@ class CollectionTile extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               )),
-          Positioned(child: Icon(Icons.star))
+          Positioned(
+            bottom: 35,
+              right: 5,
+              child: Icon(Icons.star,color: Colors.white,))
         ],
       ),
     );
